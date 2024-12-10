@@ -21,14 +21,14 @@ const Home = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
 
   const onSubmit: SubmitHandler<Input> = (data) => {
-    console.log(data);
-
     // dummy submission of form
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
+      setEmail(data.email);
       reset();
       setShowSuccess(true);
     }, 2000);
@@ -114,8 +114,8 @@ const Home = () => {
         <h2 className={styles.title}>Thanks for subscribing!</h2>
         <span className={styles.desc}>
           A confirmation email has been sent to{" "}
-          <span className={styles.active}>ash@loremcompany.com</span>. Please
-          open it and click the button inside to confirm your subscription.
+          <span className={styles.active}>{email}</span>. Please open it and
+          click the button inside to confirm your subscription.
         </span>
         <button className={styles.btn} onClick={() => setShowSuccess(false)}>
           Dismiss message
