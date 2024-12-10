@@ -7,7 +7,7 @@
   }
 
   .btn {
-    @apply bg-dark-slate-grey mt-8 w-full rounded-md bg-gradient-to-r p-3 text-sm text-white transition hover:from-pink-500 hover:to-orange-500 hover:shadow-xl;
+    @apply bg-dark-slate-grey mt-8 w-full rounded-md bg-gradient-to-r p-3 text-sm text-white transition hover:enabled:from-pink-500 hover:enabled:to-orange-500 hover:enabled:shadow-xl disabled:cursor-not-allowed disabled:bg-slate-500;
   }
   // common style of both boxes ends
 
