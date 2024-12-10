@@ -70,7 +70,9 @@ const Home = () => {
           >
             <div className={styles.labelContainer}>
               <label htmlFor="email">Email address</label>
-              <span className={styles.error}>{errors.email?.message}</span>
+              <span className={styles.error} role="alert">
+                {errors.email?.message}
+              </span>
             </div>
             <input
               type="text"
@@ -81,6 +83,7 @@ const Home = () => {
                 validate: (value) =>
                   EmailValidator.validate(value) || "Valid Email required",
               })}
+              aria-invalid={errors.email ? "true" : "false"}
             />
             <button className={styles.btn} type="submit" disabled={loading}>
               Subscribe to monthly newsletter
