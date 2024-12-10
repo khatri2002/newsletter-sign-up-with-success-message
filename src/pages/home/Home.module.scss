@@ -1,0 +1,123 @@
+.main {
+  @apply bg-charcoal-grey flex min-h-screen items-start justify-start sm:items-center sm:justify-center sm:p-4;
+
+  // common style of both boxes starts
+  .title {
+    @apply text-dark-slate-grey text-4xl font-bold sm:text-5xl;
+  }
+
+  .btn {
+    @apply bg-dark-slate-grey mt-8 w-full rounded-md bg-gradient-to-r p-3 text-sm text-white transition hover:from-pink-500 hover:to-orange-500 hover:shadow-xl;
+  }
+  // common style of both boxes ends
+
+  // form-box style starts
+  .formBox {
+    @apply flex min-h-screen flex-col-reverse items-center justify-end bg-white sm:min-h-max sm:flex-row sm:rounded-3xl;
+    width: 51rem;
+    .formContainer {
+      @apply w-full px-5 py-8 sm:w-1/2 sm:p-11;
+
+      .desc {
+        @apply text-charcoal-grey mt-5 text-sm;
+      }
+
+      .listContainer {
+        @apply mt-5 space-y-3 text-sm;
+
+        .item {
+          @apply flex items-center gap-4;
+
+          img {
+            @apply w-5;
+          }
+        }
+      }
+
+      .form {
+        @apply mt-9;
+
+        .labelContainer {
+          @apply flex justify-between text-xs;
+
+          label {
+            @apply font-bold;
+          }
+
+          .error {
+            @apply text-tomato invisible font-semibold opacity-0 transition;
+          }
+        }
+
+        input {
+          @apply hover:border-dark-slate-grey mt-2 block w-full cursor-pointer rounded-md border px-4 py-3 text-sm outline-none transition-all hover:shadow;
+        }
+
+        &.error {
+          .labelContainer .error {
+            @apply visible opacity-100;
+          }
+
+          input {
+            @apply border-tomato text-tomato bg-tomato/15;
+          }
+        }
+      }
+    }
+
+    .imgContainer {
+      @apply w-full sm:w-1/2 sm:py-5 sm:pr-5;
+
+      .desktop {
+        @apply hidden sm:block;
+      }
+
+      .mobile {
+        @apply block w-screen sm:hidden;
+      }
+    }
+
+    &.hide {
+      @apply hidden;
+    }
+  }
+  // form-box style ends
+
+  // success-box style starts
+  .successBox {
+    @apply mx-4 my-auto hidden rounded-3xl bg-white p-8 sm:p-11;
+    width: 28rem;
+
+    img {
+      @apply mb-8 w-10 sm:w-14;
+    }
+
+    .desc {
+      @apply mt-5 block text-sm;
+
+      .active {
+        @apply font-semibold;
+      }
+    }
+
+    &.show {
+      @apply block;
+      animation: show_ 0.4s forwards;
+    }
+  }
+  // success-box style ends
+}
+
+@keyframes show_ {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
